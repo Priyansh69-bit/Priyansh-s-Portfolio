@@ -4,6 +4,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const links = [{ label: "Work", href: "/#work" }, { label: "About", href: "/#about" }, { label: "Services", href: "/#services" }, { label: "Contact", href: "/#contact" }];
+const email = "priyanshpal2004@gmail.com";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function Nav() {
         <nav className="hidden items-center gap-9 md:flex">
           {links.map(link => <a key={link.label} href={link.href} className="text-[11px] uppercase tracking-[.16em] text-white/65 transition hover:text-white">{link.label}</a>)}
         </nav>
-        <a href="mailto:hello@priyanshpal.com" className="hidden items-center gap-2 text-[10px] uppercase tracking-[.16em] md:flex">Let&apos;s talk <ArrowUpRight size={14} /></a>
+        <a href={`mailto:${email}`} className="hidden items-center gap-2 text-[10px] uppercase tracking-[.16em] md:flex">Let&apos;s talk <ArrowUpRight size={14} /></a>
         <button onClick={() => setOpen(!open)} aria-label="Toggle navigation" className="md:hidden">{open ? <X /> : <Menu />}</button>
       </div>
       <AnimatePresence>
