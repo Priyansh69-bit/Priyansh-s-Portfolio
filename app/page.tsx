@@ -1,9 +1,16 @@
 import Image from "next/image";
-import { ArrowDown, MoveUpRight } from "lucide-react";
+import { ArrowDown, MoveUpRight, Phone, Mail, Instagram, Linkedin } from "lucide-react";
 import { projects } from "@/data/projects";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
+
+const contact = {
+  phone: "7651900237",
+  email: "priyanshpal2004@gmail.com",
+  instagram: "https://www.instagram.com/priyanshhh_.7/",
+  linkedin: "https://www.linkedin.com/in/priyansh-pal-1b9287339/"
+};
 
 export default function Home() {
   return (
@@ -59,13 +66,23 @@ export default function Home() {
 
         <section className="relative overflow-hidden border-y rule bg-[#111] px-5 py-24 md:px-12 md:py-36">
           <div className="mx-auto max-w-[1440px]">
-            <Reveal><p className="section-kicker">04 / The next frame</p><h2 className="mt-6 max-w-5xl text-[clamp(3.5rem,10vw,9rem)] font-black uppercase leading-[.84] tracking-[-.09em]">Have a story<br />to <span className="text-ember">tell?</span></h2><a href="mailto:hello@priyanshpal.com" className="mt-12 inline-flex items-center gap-5 border-b border-white/35 pb-3 text-sm uppercase tracking-[.15em] transition hover:border-ember hover:text-ember">Let&apos;s make it happen <MoveUpRight size={17} /></a></Reveal>
+            <Reveal><p className="section-kicker">04 / The next frame</p><h2 className="mt-6 max-w-5xl text-[clamp(3.5rem,10vw,9rem)] font-black uppercase leading-[.84] tracking-[-.09em]">Have a story<br />to <span className="text-ember">tell?</span></h2><a href={`mailto:${contact.email}`} className="mt-12 inline-flex items-center gap-5 border-b border-white/35 pb-3 text-sm uppercase tracking-[.15em] transition hover:border-ember hover:text-ember">Let&apos;s make it happen <MoveUpRight size={17} /></a></Reveal>
           </div>
         </section>
 
-        <footer id="contact" className="mx-auto flex max-w-[1440px] flex-col justify-between gap-8 px-5 py-10 text-[10px] uppercase tracking-[.16em] text-white/45 md:flex-row md:items-center md:px-12">
+        <section id="contact" className="mx-auto max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
+          <Reveal><p className="section-kicker">05 / Get in touch</p><h2 className="mt-5 max-w-4xl text-5xl font-bold tracking-[-.075em] md:text-7xl">Let&apos;s create<br /><span className="text-white/35">something meaningful.</span></h2></Reveal>
+          <div className="mt-12 grid gap-5 border-t rule pt-8 md:grid-cols-2">
+            <a href={`tel:${contact.phone}`} className="group flex items-center gap-4 py-3 transition hover:text-ember"><span className="grid h-12 w-12 place-items-center rounded-full border rule"><Phone size={18} /></span><span><span className="block text-[10px] uppercase tracking-[.18em] text-white/40">Call me</span><span className="mt-1 block text-lg">{contact.phone}</span></span><MoveUpRight className="ml-auto" size={17} /></a>
+            <a href={`mailto:${contact.email}`} className="group flex items-center gap-4 py-3 transition hover:text-ember"><span className="grid h-12 w-12 place-items-center rounded-full border rule"><Mail size={18} /></span><span><span className="block text-[10px] uppercase tracking-[.18em] text-white/40">Email</span><span className="mt-1 block break-all text-lg">{contact.email}</span></span><MoveUpRight className="ml-auto shrink-0" size={17} /></a>
+            <a href={contact.instagram} target="_blank" rel="noreferrer" className="group flex items-center gap-4 py-3 transition hover:text-ember"><span className="grid h-12 w-12 place-items-center rounded-full border rule"><Instagram size={18} /></span><span><span className="block text-[10px] uppercase tracking-[.18em] text-white/40">Instagram</span><span className="mt-1 block text-lg">@priyanshhh_.7</span></span><MoveUpRight className="ml-auto" size={17} /></a>
+            <a href={contact.linkedin} target="_blank" rel="noreferrer" className="group flex items-center gap-4 py-3 transition hover:text-ember"><span className="grid h-12 w-12 place-items-center rounded-full border rule"><Linkedin size={18} /></span><span><span className="block text-[10px] uppercase tracking-[.18em] text-white/40">LinkedIn</span><span className="mt-1 block text-lg">Priyansh Pal</span></span><MoveUpRight className="ml-auto" size={17} /></a>
+          </div>
+        </section>
+
+        <footer className="mx-auto flex max-w-[1440px] flex-col justify-between gap-6 border-t rule px-5 py-10 text-[10px] uppercase tracking-[.16em] text-white/45 md:flex-row md:items-center md:px-12">
           <span>© 2026 Priyansh Pal. All rights reserved.</span>
-          <div className="flex gap-6"><a className="hover:text-white" href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a><a className="hover:text-white" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a className="hover:text-white" href="mailto:hello@priyanshpal.com">Email ↗</a></div>
+          <div className="flex flex-wrap gap-6"><a className="hover:text-white" href={contact.instagram} target="_blank" rel="noreferrer">Instagram ↗</a><a className="hover:text-white" href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a className="hover:text-white" href={`mailto:${contact.email}`}>Email ↗</a><a className="hover:text-white" href={`tel:${contact.phone}`}>Call ↗</a></div>
           <a href="#top" className="hover:text-white">Back to top ↑</a>
         </footer>
       </main>
